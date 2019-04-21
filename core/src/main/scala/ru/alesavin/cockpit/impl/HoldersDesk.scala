@@ -44,7 +44,7 @@ abstract class HoldersDesk[F[_]](ft: ControlTypes,
                                  init: String): Control[V]
 
   protected def updateInner(name: String)
-                           (current2next: String => String): F[Unit]
+                           (updater: String => String): F[Unit]
 }
 
 object HoldersDesk {

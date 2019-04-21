@@ -44,10 +44,10 @@ class InMemoryDesk(ft: ControlTypes,
     }
 
   override protected def updateInner(name: String)
-                                    (current2next: String => String): Future[Unit] =
+                                    (updater: String => String): Future[Unit] =
     synchronized { Future.fromTry(Try {
       val old = featureMap(name)
-      val n = current2next(old)
+      val n = updater(old)
       featureMap.update(name, n)
     })}
 }
