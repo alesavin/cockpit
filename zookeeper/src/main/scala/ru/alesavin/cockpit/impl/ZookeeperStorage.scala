@@ -10,7 +10,7 @@ import scala.collection.JavaConverters._
 
 
 /**
-  * TODO
+  * Impl of [[Storage]] over Zookeeper
   *
   * @author alesavin
   */

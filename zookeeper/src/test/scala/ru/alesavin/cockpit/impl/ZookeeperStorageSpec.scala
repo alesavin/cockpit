@@ -8,7 +8,7 @@ import org.scalatest.{Matchers, WordSpec}
 import scala.util.{Failure, Success}
 
 /**
-  * TODO
+  * Specs on [[ZookeeperStorage]]
   *
   * @author alesavin
   */

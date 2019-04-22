@@ -13,6 +13,7 @@ conflictManager := ConflictManager.strict
 
 val JunitVersion = "4.12"
 val ScalaTestVersion = "3.0.5"
+val LogbackVersion = "1.2.3"
 val CuratorVersion = "4.2.0"
 
 val customScalacOptions = Seq(
@@ -47,6 +48,7 @@ lazy val zookeeper = (project in file("zookeeper"))
     name := "cockpit-zookeeper",
     scalacOptions ++= customScalacOptions,
     libraryDependencies ++= customDependencies ++ Seq(
+      "ch.qos.logback" % "logback-classic" % LogbackVersion,
       "org.apache.curator" % "curator-framework" % CuratorVersion,
       "org.apache.curator" % "curator-test" % CuratorVersion % Test,
     )

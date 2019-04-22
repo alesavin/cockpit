@@ -8,7 +8,7 @@ import ru.alesavin.cockpit.model.{ControlTypes, Desk}
 import scala.concurrent.Future
 
 /**
-  * TODO
+  * Specd on [[ZookeeperDesk]]
   *
   * @author alesavin
   */
@@ -29,8 +29,6 @@ class ZookeeperDeskSpec
     val BasePath = "/test"
     Curator.create().creatingParentsIfNeeded().forPath(BasePath)
 
-    val zkStorage =
-      new ZookeeperStorage(Curator, BasePath)
-    new ZookeeperDesk(zkStorage, ft)
+    new ZookeeperDesk(Curator, BasePath, ft)
   }
 }

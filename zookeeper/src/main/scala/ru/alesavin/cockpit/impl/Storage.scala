@@ -3,7 +3,8 @@ package ru.alesavin.cockpit.impl
 import scala.util.Try
 
 /**
-  * TODO
+  * Provide simple interface to storage
+  * TODO move to core
   *
   * @author alesavin
   */
