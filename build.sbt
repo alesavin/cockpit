@@ -11,6 +11,11 @@ crossScalaVersions := Seq("2.12.7")
 
 conflictManager := ConflictManager.strict
 
+val JunitVersion = "4.12"
+val ScalaTestVersion = "3.0.5"
+val LogbackVersion = "1.2.3"
+val CuratorVersion = "4.2.0"
+
 val customScalacOptions = Seq(
   "-unchecked",
   "-deprecation",
@@ -23,8 +28,8 @@ val customScalacOptions = Seq(
 )
 
 val customDependencies = Seq(
-  "junit" % "junit" % "4.12" % Test,
-  "org.scalatest" %% "scalatest" % "3.0.5" % Test
+  "junit" % "junit" % JunitVersion % Test,
+  "org.scalatest" %% "scalatest" % ScalaTestVersion % Test
 )
 
 lazy val root = (project in file("."))
@@ -43,9 +48,11 @@ lazy val zookeeper = (project in file("zookeeper"))
     name := "cockpit-zookeeper",
     scalacOptions ++= customScalacOptions,
     libraryDependencies ++= customDependencies ++ Seq(
-      "org.apache.curator" % "curator-framework" % "4.2.0"
+      "ch.qos.logback" % "logback-classic" % LogbackVersion,
+      "org.apache.curator" % "curator-framework" % CuratorVersion,
+      "org.apache.curator" % "curator-test" % CuratorVersion % Test,
     )
-  ).dependsOn(core % "compile->compile,test->test")
+  ).dependsOn(core % "compile->compile;test->test")
 
 lazy val akkaHttp = (project in file("akka-http"))
   .settings(
@@ -54,6 +61,5 @@ lazy val akkaHttp = (project in file("akka-http"))
     libraryDependencies ++= customDependencies
   )
 
-//coverageEnabled := true
-
+// TODO coverageEnabled := true
 // TODO scalastyle

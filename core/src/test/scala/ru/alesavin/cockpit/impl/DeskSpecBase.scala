@@ -102,7 +102,7 @@ trait DeskSpecBase
 
       d.register(name, 122)
       d.delete(name).futureValue shouldBe true
-      d.list.futureValue.isEmpty shouldBe true
+      d.list.futureValue shouldBe empty
     }
     "return false on calling delete for nonexistent feature" in {
       val d = desk()

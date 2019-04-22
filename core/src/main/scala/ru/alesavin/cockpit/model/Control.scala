@@ -18,6 +18,8 @@ trait Control[V] {
 
   override def hashCode: Int =
     name.hashCode
+
+  override def toString: String = s"Control($name)"
 }
 
 object Control {
